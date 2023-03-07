@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Taiwind UiKit wrapper",
   "license": "MIT",
-  "repository": "pureBaldr/theme-states",
+  "repository": "pureBaldr/themeStates",
   "main": "index.ts",
   "keywords": [
     "light",
