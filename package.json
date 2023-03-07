@@ -1,0 +1,22 @@
+{
+  "name": "@dadmor/pure-baldr-theme-states",
+  "version": "0.0.1",
+  "description": "Taiwind UiKit wrapper",
+  "license": "MIT",
+  "repository": "pureBaldr/theme-states",
+  "main": "index.ts",
+  "keywords": [
+    "light",
+    "less 1 kb",
+    "npm",
+    "package",
+    "react",
+    "uikit",
+    "tailwind",
+    "typescript",
+    "theme states"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.2.0"
+  }
+}
