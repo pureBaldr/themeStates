@@ -30,3 +30,30 @@ export const deepGet = (obj: any, path: string) => {
     // console.log('catch deepGet error, ',obj,path)
   }
 };
+
+/* 
+  outside click event
+*/
+export const useOutsideAlerter = (
+  ref: any,
+  useThemeStore: any,
+  useEffect: any
+) => {
+  const setAttr = useThemeStore((state: any) => state.setAttr);
+  useEffect(() => {
+    function handle(event: any) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setAttr({
+          path: "theme.dropdown",
+          value: null,
+        });
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handle);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handle);
+    };
+  }, [ref]);
+};
