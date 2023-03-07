@@ -36,7 +36,7 @@ export const deepGet = (obj: any, path: string) => {
 /* 
   outside click event
 */
-export const useOutsideAlerter: any = (
+export const useOutsideAlerter = (
   ref: any,
   useThemeStore: any,
   useEffect: any
