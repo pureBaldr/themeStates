@@ -1,3 +1,5 @@
+import create from "zustand";
+import produce from "immer";
 /* 
   get deep by path
 */
@@ -38,17 +40,14 @@ export const deepGet = (obj: any, path: string) => {
 */
 export const useOutsideAlerter = (
   ref: any,
-  useThemeStore: any,
+  // useThemeStore: any,
   useEffect: any
 ) => {
-  const setAttr = useThemeStore((state: any) => state.setAttr);
+  const setDropdown = useCoreStore((state: any) => state.setDropdown);
   useEffect(() => {
     function handle(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
-        setAttr({
-          path: "theme.dropdown",
-          value: null,
-        });
+        setDropdown(null);
       }
     }
     // Bind the event listener
@@ -59,3 +58,22 @@ export const useOutsideAlerter = (
     };
   }, [ref]);
 };
+
+/* 
+  core store
+*/
+export const useCoreStore = create((set) => ({
+  core: {
+    formMessage: {
+      text: "",
+      status: "success",
+    },
+    dropdown: false,
+  },
+  setDropdown: (_ref: string | null) =>
+    set(
+      produce((_: any) => {
+        _["core"]["dropdown"] = _ref;
+      })
+    ),
+}));
