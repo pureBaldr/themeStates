@@ -16,16 +16,18 @@ export const deepSet = (obj: any, path: string, val: any) => {
 */
 export const deepGet = (obj: any, path: string) => {
   if (typeof obj === "object" && path) {
-    let e = Array.isArray(path)
+    let elements = Array.isArray(path)
         ? path
         : typeof path === "string"
         ? path.split(".")
         : path,
-      v,
+      val,
       i;
-    for (v = obj, i = 0; v && i < e.length; ++i) v = v[e[i]];
-    return v;
+    for (val = obj, i = 0; val && i < elements.length; ++i)
+      val = val[elements[i]];
+    return val;
   } else {
+    // todo:
     // if form dont have data (resolved it by ts)
     // console.log('catch deepGet error, ',obj,path)
   }
@@ -34,7 +36,7 @@ export const deepGet = (obj: any, path: string) => {
 /* 
   outside click event
 */
-export const useOutsideAlerter:any = (
+export const useOutsideAlerter: any = (
   ref: any,
   useThemeStore: any,
   useEffect: any
