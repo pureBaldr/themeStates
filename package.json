@@ -17,6 +17,8 @@
     "theme states"
   ],
   "devDependencies": {
-    "@types/react": "^18.2.0"
+    "@types/react": "^18.2.0",
+    "zustand": "^4.1.1",
+    "immer": "^9.0.15"
   }
 }
